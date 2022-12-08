@@ -224,7 +224,7 @@
     <Content Include="Images\Installation.png" />
     <Content Include="Resources\rarityGems\common_edit.png" />
     <Content Include="Resources\rarityGems\epic_edited.png" />
-    <Content Include="legendary_edited.png" />
+    <Content Include="Resources\rarityGems\legendary_edited.png" />
     <Content Include="Resources\rarityGems\rare_edited.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
