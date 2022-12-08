@@ -215,8 +215,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\cpocMainWindow.png" />
+    <Content Include="Images\cpocOpenFromMenuBar.png" />
+    <Content Include="Images\cpocOverlay.png" />
+    <Content Include="Images\Installation.png" />
     <Content Include="Resources\rarityGems\common_edit.png" />
     <Content Include="Resources\rarityGems\epic_edited.png" />
     <Content Include="legendary_edited.png" />
