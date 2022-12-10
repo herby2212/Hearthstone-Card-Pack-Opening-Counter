@@ -44,7 +44,7 @@ namespace HDT_CardPackOpeningCounter
         public string Description => "A HDT Plugin that assists you when your opening your glorious packs \nby counting the received cards and displaying the amount\nbased on rarity and quality (normal & golden).";
         public string ButtonText => "Open the Card Pack Opener Counter";
         public string Author => "herby2212";
-        public Version Version => new Version(1, 0, 0);
+        public Version Version => new Version(1, 1, 0);
 
 
         protected int i = 0;
@@ -189,8 +189,7 @@ namespace HDT_CardPackOpeningCounter
                     packOpeningCards += s;
                 }
             }
-            String filename = @"E:\Spiele\Blizzard\Hearthstone\AnalyzedLog.txt";
-            File.WriteAllText(filename, test);
+
             worker.DoWork -= new DoWorkEventHandler(CardAddHandler);
             worker.RunWorkerCompleted -= new RunWorkerCompletedEventHandler(CardAddCompleted);
 
@@ -243,9 +242,6 @@ namespace HDT_CardPackOpeningCounter
                 }
                 openings += "PACK END\n";
             }
-            
-            String filename = @"E:\Spiele\Blizzard\Hearthstone\AnalyzedCardsFromLog.txt";
-            File.WriteAllText(filename, openings);      
         }
 
         private void addCardBasedOnRarity(int cardId, int premium)
