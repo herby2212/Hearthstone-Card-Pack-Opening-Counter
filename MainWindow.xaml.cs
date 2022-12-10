@@ -1,6 +1,8 @@
 ﻿using MahApps.Metro.Controls;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,6 +124,36 @@ namespace HDT_CardPackOpeningCounter
             if(result == MessageBoxResult.Yes)
             {
                 cardPackOpeningCounter.resetCount();
+            }
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Open Card Count File";
+            dialog.Filter = "Card Count File | *.hcc";
+            dialog.InitialDirectory = @"C:\";
+            if (dialog.ShowDialog() == true)
+            {
+                string filename = dialog.FileName;
+                cardPackOpeningCounter.loadFile(filename);
+            }
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDia = new SaveFileDialog();
+            saveFileDia.Filter = "Card Count File | *.hcc";
+            saveFileDia.Title = "Save Card Count";
+            saveFileDia.FileName = "HS Card Count - " + DateTime.Now.ToString("dd-MM-yyyy");
+            List<string> lines = cardPackOpeningCounter.saveCounts();
+            if (saveFileDia.ShowDialog() == true)
+            {
+                if (saveFileDia.FileName != "")
+                {
+                    File.WriteAllLines(saveFileDia.FileName, lines);
+                    lines.Clear();
+                }
             }
         }
     }

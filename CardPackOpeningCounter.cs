@@ -294,6 +294,85 @@ namespace HDT_CardPackOpeningCounter
             hearthStoneDirectory = directory;
             
         }
+
+        internal List<string> saveCounts() {
+            List<String> lines = new List<string>();
+            for (int i = 0; i < common; i++)
+            {
+                lines.Add("Card:Common");
+            }
+            for (int i = 0; i < rare; i++)
+            {
+                lines.Add("Card:Rare");
+            }
+            for (int i = 0; i < epic; i++)
+            {
+                lines.Add("Card:Epic");
+            }
+            for (int i = 0; i < legendary; i++)
+            {
+                lines.Add("Card:Legendary");
+            }
+            for (int i = 0; i < goldenCommon; i++)
+            {
+                lines.Add("Card:Golden:Common");
+            }
+            for (int i = 0; i < goldenRare; i++)
+            {
+                lines.Add("Card:Golden:Rare");
+            }
+            for (int i = 0; i < goldenEpic; i++)
+            {
+                lines.Add("Card:Golden:Epic");
+            }
+            for (int i = 0; i < goldenLegendary; i++)
+            {
+                lines.Add("Card:Golden:Legendary");
+            }
+            return lines;
+        }
+
+        internal void loadFile(string fileName)
+        {
+            resetCount();
+            String[] log = File.ReadAllLines(fileName);
+            foreach (string line in log)
+            {
+                if (line.Contains("Card:Common"))
+                {
+                    common += 1;
+                }
+                else if (line.Contains("Card:Rare"))
+                {
+                    rare += 1;
+                }
+                else if (line.Contains("Card:Epic"))
+                {
+                    epic += 1;
+                }
+                else if (line.Contains("Card:Legendary"))
+                {
+                    legendary += 1;
+                }
+                else if (line.Contains("Card:Golden:Common"))
+                {
+                    goldenCommon += 1;
+                }
+                else if (line.Contains("Card:Golden:Rare"))
+                {
+                    goldenRare += 1;
+                }
+                else if (line.Contains("Card:Golden:Epic"))
+                {
+                    goldenEpic += 1;
+                }
+                else if (line.Contains("Card:Golden:Legendary"))
+                {
+                    goldenLegendary += 1;
+                }
+            }
+        }
+
         public void resetCount()
         {
             common = 0;
