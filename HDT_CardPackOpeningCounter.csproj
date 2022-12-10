@@ -221,11 +221,28 @@
     <Content Include="Images\cpocMainWindow.png" />
     <Content Include="Images\cpocOpenFromMenuBar.png" />
     <Content Include="Images\cpocOverlay.png" />
+    <Resource Include="Images\HearthStoneCardPackOpeningCounter32x32.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Images\Installation.png" />
-    <Content Include="Resources\rarityGems\common_edit.png" />
-    <Content Include="Resources\rarityGems\epic_edited.png" />
-    <Content Include="Resources\rarityGems\legendary_edited.png" />
-    <Content Include="Resources\rarityGems\rare_edited.png" />
+    <Resource Include="Resources\icon-dust-needed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icon-dust.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\rarityGems\common_edit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\rarityGems\epic_edited.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\rarityGems\legendary_edited.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\rarityGems\rare_edited.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

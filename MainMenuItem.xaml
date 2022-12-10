@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:HDT_CardPackOpeningCounter"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="2000"
-             Header="_Open the CPOC">
+             Header="_Open the CPOC" VerticalContentAlignment="Center">
     <MenuItem.Icon>
-        <Image Source="Resources/rarityGems/rare_edited.png"></Image>
+        <Image Source="Images/HearthStoneCardPackOpeningCounter32x32.ico"></Image>
     </MenuItem.Icon>
 </MenuItem>

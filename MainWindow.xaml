@@ -11,10 +11,12 @@
                  ResizeMode="CanResizeWithGrip"
                  WindowStartupLocation="CenterScreen"
                  mc:Ignorable="d" Closing="MetroWindow_Closing">
+    <mah:MetroWindow.Resources>
+    </mah:MetroWindow.Resources>
     <Grid HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="790">
         <Grid.RowDefinitions>
-            <RowDefinition Height="52*"/>
-            <RowDefinition Height="27"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="33"/>
             <RowDefinition Height="54"/>
             <RowDefinition Height="61*"/>
             <RowDefinition Height="34"/>
@@ -30,10 +32,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lCommon" Content="Common" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="27" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <Label x:Name="lRare" Content="Rare" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="27" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <Label x:Name="lEpic" Content="Epic" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="27" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <Label x:Name="lLegendary" Content="Legendary" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="27" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
+        <Label x:Name="lCommon" Content="Common" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="32" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Margin="0,0,0,1"/>
+        <Label x:Name="lRare" Content="Rare" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="32" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Margin="0,0,0,1"/>
+        <Label x:Name="lEpic" Content="Epic" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="32" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Margin="0,0,0,1"/>
+        <Label x:Name="lLegendary" Content="Legendary" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="32" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Margin="0,0,0,1"/>
         <Label x:Name="lCountCommon" Content="0" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="54" Width="188" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label x:Name="lCountRare" Content="0" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="54" Width="188" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label x:Name="lCountEpic" Content="0" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="54" Width="188" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
@@ -48,23 +50,23 @@
         <Label x:Name="lCountGoldenLegendary" Content="0" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="54" Width="188" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Grid Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" Width="188">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="IconDustingValue" Width="12*"/>
-                <ColumnDefinition x:Name="TextDustingValue" Width="35*"/>
+                <ColumnDefinition x:Name="IconDustingValue" Width="19*"/>
+                <ColumnDefinition x:Name="TextDustingValue" Width="75*"/>
             </Grid.ColumnDefinitions>
-            <Image HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="48"/>
-            <Label x:Name="lCraftingCost" Content="Cafting Cost" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="34" Width="140" VerticalContentAlignment="Center"/>
+            <Image x:Name="imgDust" HorizontalAlignment="Center" Height="34" VerticalAlignment="Center" Width="48" Source="Resources/icon-dust-needed.png" Stretch="None" Grid.ColumnSpan="2" Margin="-2,0,142,0"/>
+            <Label x:Name="lCraftingCost" Content="Cafting Cost: 0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="34" Width="150" VerticalContentAlignment="Center" Grid.Column="1"/>
         </Grid>
         <Grid Grid.Column="4" Grid.Row="8" HorizontalAlignment="Left" Width="188">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="IconCraftingCost" Width="12*"/>
-                <ColumnDefinition x:Name="TextCraftingCost" Width="35*"/>
+                <ColumnDefinition x:Name="IconCraftingCost" Width="19*"/>
+                <ColumnDefinition x:Name="TextCraftingCost" Width="75*"/>
             </Grid.ColumnDefinitions>
-            <Image HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="48"/>
-            <Label x:Name="lDustingValue" Content="Dusting Value" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="34" Width="140" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Center" Height="34" VerticalAlignment="Center" Width="48" Stretch="None" Source="Resources/icon-dust.png" Grid.ColumnSpan="2" Margin="0,0,140,0"/>
+            <Label x:Name="lDustingValue" Content="Dusting Value: 0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="34" Width="148" VerticalContentAlignment="Center" Margin="0,0,2,0"/>
         </Grid>
-        <Label x:Name="lTotalCards" Content="Total Cards" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="34" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label x:Name="lTotalPacks" Content="Total Packs" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="34" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="790" Grid.ColumnSpan="5">
+        <Label x:Name="lTotalCards" Content="Total Cards: 0" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="34" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lTotalPacks" Content="Total Packs: 0" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="34" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="790" Grid.ColumnSpan="5" Grid.RowSpan="2">
             <Button x:Name="btnSave" Content="Save" Height="26" Width="175" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40,10,0,0" Click="btnSave_Click"/>
             <Button x:Name="btnLoad" Content="Load" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="169" Margin="0,10,0,0" Click="btnLoad_Click"/>
             <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Center" VerticalAlignment="Center" Width="165" Height="26" Margin="0,10,0,0" Click="btnReset_Click"/>
