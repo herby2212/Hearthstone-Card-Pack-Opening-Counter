@@ -65,5 +65,8 @@
         <Label x:Name="lTotalCards" Content="Total Cards" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="34" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label x:Name="lTotalPacks" Content="Total Packs" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="34" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <CheckBox x:Name="cbOverlay" Content="Overlay" Grid.Column="4" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="26" Width="123" FontSize="18" Padding="14,-1,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" Unchecked="cbOverlay_Unchecked" Checked="cbOverlay_Checked"/>
+        <Button x:Name="btnReset" Content="Reset" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="168" Height="26" Click="btnReset_Click"/>
+        <Button x:Name="btnImport" Content="Save" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="168" Height="26"/>
+        <Button x:Name="btnExport" Content="Load" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="168" Height="26"/>
     </Grid>
 </mah:MetroWindow>

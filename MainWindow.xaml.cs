@@ -23,10 +23,13 @@ namespace HDT_CardPackOpeningCounter
     {
         protected static Overlay Overlay;
 
-        public MainWindow(int cCommon, int cRare, int cEpic, int cLegendary,
+        protected static CardPackOpeningCounter cardPackOpeningCounter;
+
+        public MainWindow(CardPackOpeningCounter instance, int cCommon, int cRare, int cEpic, int cLegendary,
             int cGoldenCommon, int cGoldenRare, int cGoldenEpic, int cGoldenLegendary)
         {
             InitializeComponent();
+            cardPackOpeningCounter = instance;
             InitializeOverlay(cCommon, cRare, cEpic, cLegendary, cGoldenCommon, cGoldenRare, cGoldenEpic, cGoldenLegendary);
             refresh(cCommon, cRare, cEpic, cLegendary);
             refreshGolden(cGoldenCommon, cGoldenRare, cGoldenEpic, cGoldenLegendary);
@@ -111,6 +114,15 @@ namespace HDT_CardPackOpeningCounter
             }
             Overlay.Close();
             Overlay = null;
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Do you really want to reset all card counters? \nThis process can not be undone!", "Warining!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if(result == MessageBoxResult.Yes)
+            {
+                cardPackOpeningCounter.resetCount();
+            }
         }
     }
 }

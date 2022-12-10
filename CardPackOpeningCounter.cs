@@ -68,7 +68,7 @@ namespace HDT_CardPackOpeningCounter
         {
             if(MainWindow == null)
             {
-                MainWindow = new MainWindow(common, rare, epic, legendary, goldenCommon, goldenRare, goldenEpic, goldenLegendary);
+                MainWindow = new MainWindow(this, common, rare, epic, legendary, goldenCommon, goldenRare, goldenEpic, goldenLegendary);
                 MainWindow.Closed += mainWindowClosedEventHandler;
             }
         }
@@ -294,7 +294,7 @@ namespace HDT_CardPackOpeningCounter
             hearthStoneDirectory = directory;
             
         }
-        private void resetCount()
+        public void resetCount()
         {
             common = 0;
             rare = 0;
@@ -305,9 +305,7 @@ namespace HDT_CardPackOpeningCounter
             goldenEpic = 0;
             goldenLegendary = 0;
 
-            MainWindow.refresh(common, rare, epic, legendary);
-            MainWindow.refreshGolden(goldenCommon, goldenRare, goldenEpic, goldenLegendary);
-            DustCalculation();
+            updateCardCountWindows();
         }
 
         private void cardsTotal()
