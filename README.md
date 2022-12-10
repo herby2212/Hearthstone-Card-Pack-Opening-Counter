@@ -27,13 +27,19 @@ So you have a direct overview of how your pack opening is going.
 
 ![!](Images/cpocOverlay.png "Overlay that sits on top of Hearthstone and be freely positioned")
 
+### Save / Load
+
+The current card count of the different rarities can simply be exported / saved as a file (.hcc / Hearthstone Card Count) file to your desired location via the **Save** button.
+
+This file can then be later imported / loaded via the **Load** button in the main window.
+
 ### Planned
 
 The plugin is currently still under the development meaning more features are planned like:
 
-- Beautify the UI including images and some optimizations
+- Buttons in the UI for the individual rarities to manually add/remove a card
 - Auto Update your HSReplay Collection with the received Cards
-- Export / Import of your opening stats to view older card pack openings
+- ~~Export / Import of your opening stats to view older card pack openings~~ [Implemented with Version 1.1.0]
 - Live Duplicate checking - see how many duplicates you have drawn based on your collection
 
 ## Get Started / Installation
@@ -51,4 +57,4 @@ Feel free to create a Issue on GitHub for found issues or feature requests.
 
 ***
 
-Version: 1.0.0
+Version: 1.1.0
