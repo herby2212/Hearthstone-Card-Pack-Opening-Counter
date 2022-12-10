@@ -46,11 +46,6 @@ namespace HDT_CardPackOpeningCounter
             }
         }
 
-        public void setTest(String text)
-        {
-            this.lCommon.Content = text;
-        }
-
         public void refresh(int cCommon, int cRare, int cEpic, int cLegendary)
         {
             this.updateLabel(this.lCountCommon, cCommon);

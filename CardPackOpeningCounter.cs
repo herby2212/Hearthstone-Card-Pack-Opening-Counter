@@ -371,6 +371,7 @@ namespace HDT_CardPackOpeningCounter
                     goldenLegendary += 1;
                 }
             }
+            updateCardCountWindows();
         }
 
         public void resetCount()

@@ -13,15 +13,15 @@
                  mc:Ignorable="d" Closing="MetroWindow_Closing">
     <Grid HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="790">
         <Grid.RowDefinitions>
-            <RowDefinition Height="53*"/>
-            <RowDefinition Height="33"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="27"/>
             <RowDefinition Height="54"/>
-            <RowDefinition Height="71*"/>
+            <RowDefinition Height="61*"/>
             <RowDefinition Height="34"/>
             <RowDefinition Height="54"/>
             <RowDefinition Height="31"/>
-            <RowDefinition Height="63*"/>
-            <RowDefinition Height="39*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="34*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MaxWidth="38"/>
@@ -30,10 +30,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lCommon" Content="Common" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="33" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <Label x:Name="lRare" Content="Rare" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="33" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <Label x:Name="lEpic" Content="Epic" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="33" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <Label x:Name="lLegendary" Content="Legendary" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="33" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
+        <Label x:Name="lCommon" Content="Common" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="27" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
+        <Label x:Name="lRare" Content="Rare" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="27" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
+        <Label x:Name="lEpic" Content="Epic" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="27" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
+        <Label x:Name="lLegendary" Content="Legendary" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="188" Height="27" Background="{x:Null}" RenderTransformOrigin="0.275,0.324" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
         <Label x:Name="lCountCommon" Content="0" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="54" Width="188" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label x:Name="lCountRare" Content="0" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="54" Width="188" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label x:Name="lCountEpic" Content="0" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="54" Width="188" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
@@ -64,9 +64,11 @@
         </Grid>
         <Label x:Name="lTotalCards" Content="Total Cards" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="34" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label x:Name="lTotalPacks" Content="Total Packs" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="34" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <CheckBox x:Name="cbOverlay" Content="Overlay" Grid.Column="4" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="26" Width="123" FontSize="18" Padding="14,-1,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" Unchecked="cbOverlay_Unchecked" Checked="cbOverlay_Checked"/>
-        <Button x:Name="btnReset" Content="Reset" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="168" Height="26" Click="btnReset_Click"/>
-        <Button x:Name="btnSave" Content="Save" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="168" Height="26" Click="btnSave_Click"/>
-        <Button x:Name="btnLoad" Content="Load" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="168" Height="26" Click="btnLoad_Click"/>
+        <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="790" Grid.ColumnSpan="5">
+            <Button x:Name="btnSave" Content="Save" Height="26" Width="175" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40,10,0,0" Click="btnSave_Click"/>
+            <Button x:Name="btnLoad" Content="Load" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="169" Margin="0,10,0,0" Click="btnLoad_Click"/>
+            <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Center" VerticalAlignment="Center" Width="165" Height="26" Margin="0,10,0,0" Click="btnReset_Click"/>
+            <CheckBox x:Name="cbOverlay" Content="Overlay" Width="91" Height="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" Padding="10,-1,0,0" Margin="34,0,0,0" Unchecked="cbOverlay_Unchecked" Checked="cbOverlay_Checked"/>
+        </Menu>
     </Grid>
 </mah:MetroWindow>
