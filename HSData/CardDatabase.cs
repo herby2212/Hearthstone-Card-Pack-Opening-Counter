@@ -10,7 +10,7 @@ using System.Web.Script.Serialization;
 
 namespace HDT_CardPackOpeningCounter.HSData
 {
-    static class CardDatabase
+    public static class CardDatabase
     {
 
         private static CardData[] data;

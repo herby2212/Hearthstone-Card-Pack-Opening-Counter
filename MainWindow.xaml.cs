@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using HDT_CardPackOpeningCounter.HSData;
+using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static HDT_CardPackOpeningCounter.HSData.CardDatabase;
 
 namespace HDT_CardPackOpeningCounter
 {
@@ -150,6 +152,46 @@ namespace HDT_CardPackOpeningCounter
                     lines.Clear();
                 }
             }
+        }
+
+        private void addCardButton_Click(object sender, RoutedEventArgs e)
+        {
+            object[] informations = getInformations(sender);
+            cardPackOpeningCounter.addCardBasedOnRarity((RARITY)informations[0], (int)informations[1]);
+        }
+
+        private void removeCardButton_Click(object sender, RoutedEventArgs e)
+        {
+            object[] informations = getInformations(sender);
+            cardPackOpeningCounter.removeCardBasedOnRarity((RARITY)informations[0], (int)informations[1]);
+        }
+
+        private object[] getInformations(object sender)
+        {
+            FrameworkElement button = (FrameworkElement)sender;
+            FrameworkElement grid = (FrameworkElement)button.Parent;
+
+            int premium = grid.Name.Contains("Golden") ? 1 : 0;
+            RARITY rarity = RARITY.FREE;
+
+            if (grid.Name.Contains("Common"))
+            {
+                rarity = RARITY.COMMON;
+            }
+            else if(grid.Name.Contains("Rare"))
+            {
+                rarity = RARITY.RARE;
+            }
+            else if(grid.Name.Contains("Epic"))
+            {
+                rarity = RARITY.EPIC;
+            }
+            else if(grid.Name.Contains("Legendary"))
+            {
+                rarity = RARITY.LEGENDARY;
+            }
+
+            return new object[] { rarity, premium };
         }
     }
 }

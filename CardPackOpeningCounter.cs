@@ -44,7 +44,7 @@ namespace HDT_CardPackOpeningCounter
         public string Description => "A HDT Plugin that assists you when your opening your glorious packs \nby counting the received cards and displaying the amount\nbased on rarity and quality (normal & golden).";
         public string ButtonText => "Open the Card Pack Opener Counter";
         public string Author => "herby2212";
-        public Version Version => new Version(1, 1, 0);
+        public Version Version => new Version(1, 2, 0);
 
 
         protected int i = 0;
@@ -207,7 +207,7 @@ namespace HDT_CardPackOpeningCounter
             {
                 foreach (CardCollectionModification ccm in ccmQueue)
                 {
-                    addCardBasedOnRarity(ccm.AssetCardId, ccm.Premium);
+                    addCardBasedOnCardId(ccm.AssetCardId, ccm.Premium);
                 }
                 ccmQueue.Clear();
             }
@@ -244,42 +244,137 @@ namespace HDT_CardPackOpeningCounter
             }
         }
 
-        private void addCardBasedOnRarity(int cardId, int premium)
+        private void changeCardBasedOnRarity(RARITY rarity, int premium, CardCountModificationMode cardCountModificationMode)
         {
-            RARITY rarity = CardDatabase.getRarity(cardId);
             bool golden = Convert.ToBoolean(premium);
             if (rarity == RARITY.COMMON)
             {
-                if (golden == true)
+                switch (cardCountModificationMode)
                 {
-                    goldenCommon += 1;
+                    case CardCountModificationMode.ADD:
+                        if (golden)
+                        {
+                            goldenCommon += 1;
+                        }
+                        else
+                        {
+                            common += 1;
+                        }
+                        break;
+                    case CardCountModificationMode.REMOVE:
+                        if (golden)
+                        {
+                            goldenCommon = goldenCommon == 0 ? 0 : goldenCommon -= 1;
+                        }
+                        else
+                        {
+                            common = common == 0 ? 0 : common -= 1;
+                        }
+                        break;
                 }
-                common += 1;
             }
             else if (rarity == RARITY.RARE)
             {
-                if (golden == true)
+                switch (cardCountModificationMode)
                 {
-                    goldenRare += 1;
+                    case CardCountModificationMode.ADD:
+                        if (golden)
+                        {
+                            goldenRare += 1;
+                        }
+                        else
+                        {
+                            rare += 1;
+                        }
+                        break;
+                    case CardCountModificationMode.REMOVE:
+                        if (golden)
+                        {
+                            goldenRare = goldenRare == 0 ? 0 : goldenRare  -= 1;
+                        }
+                        else
+                        {
+                            rare = rare == 0 ? 0 : rare -= 1;
+                        }
+                        break;
                 }
-                rare += 1;
             }
             else if (rarity == RARITY.EPIC)
             {
-                if (golden == true)
+                switch (cardCountModificationMode)
                 {
-                    goldenEpic += 1;
+                    case CardCountModificationMode.ADD:
+                        if (golden)
+                        {
+                            goldenEpic += 1;
+                        }
+                        else
+                        {
+                            epic += 1;
+                        }
+                        break;
+                    case CardCountModificationMode.REMOVE:
+                        if (golden)
+                        {
+                            goldenEpic = goldenEpic == 0 ? 0 : goldenEpic -= 1;
+                        }
+                        else
+                        {
+                            epic = epic == 0 ? 0 : epic -= 1;
+                        }
+                        break;
                 }
-                epic += 1;
             }
             else if (rarity == RARITY.LEGENDARY)
             {
-                if (golden == true)
+                switch (cardCountModificationMode)
                 {
-                    goldenLegendary += 1;
+                    case CardCountModificationMode.ADD:
+                        if (golden)
+                        {
+                            goldenLegendary += 1;
+                        }
+                        else
+                        {
+                            legendary += 1;
+                        }
+                        break;
+                    case CardCountModificationMode.REMOVE:
+                        if (golden)
+                        {
+                            goldenLegendary = goldenLegendary == 0 ? 0 : goldenLegendary -= 1;
+                        }
+                        else
+                        {
+                            legendary = legendary == 0 ? 0 : legendary -= 1;
+                        }
+                        break;
                 }
-                legendary += 1;
             }
+        }
+
+        public void addCardBasedOnRarity(RARITY rarity, int premium)
+        {
+            changeCardBasedOnRarity(rarity, premium, CardCountModificationMode.ADD);
+            updateCardCountWindows();
+        }
+
+        public void removeCardBasedOnRarity(RARITY rarity, int premium)
+        {
+            changeCardBasedOnRarity(rarity, premium, CardCountModificationMode.REMOVE);
+            updateCardCountWindows();
+        }
+
+        private enum CardCountModificationMode
+        {
+            ADD,
+            REMOVE
+        }
+
+        private void addCardBasedOnCardId(int cardId, int premium)
+        {
+            RARITY rarity = CardDatabase.getRarity(cardId);
+            addCardBasedOnRarity(rarity, premium);
         }
 
         private void initializeHearthStonePath()
