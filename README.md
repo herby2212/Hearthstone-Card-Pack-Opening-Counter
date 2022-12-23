@@ -37,7 +37,7 @@ This file can then be later imported / loaded via the **Load** button in the mai
 
 The plugin is currently still under the development meaning more features are planned like:
 
-- Buttons in the UI for the individual rarities to manually add/remove a card
+- ~~Buttons in the UI for the individual rarities to manually add/remove a card~~ [Implemented with Version 1.2.0]
 - Auto Update your HSReplay Collection with the received Cards
 - ~~Export / Import of your opening stats to view older card pack openings~~ [Implemented with Version 1.1.0]
 - Live Duplicate checking - see how many duplicates you have drawn based on your collection
@@ -57,4 +57,4 @@ Feel free to create a Issue on GitHub for found issues or feature requests.
 
 ***
 
-Version: 1.1.0
+Version: 1.2.0
